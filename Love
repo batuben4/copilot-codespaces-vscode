@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elif'e Özel Sevgi Kutlaması</title>
+    <style>
+        body {
+            background-color: #ffe6f2;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            color: #ff3385;
+            font-size: 3em;
+            animation: pulse 1.5s infinite;
+            z-index: 1;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        .heart {
+            position: absolute;
+            bottom: 0;
+            font-size: 2em;
+            animation: rise 5s ease-in infinite;
+            user-select: none;
+        }
+
+        @keyframes rise {
+            0% { bottom: 0; opacity: 1; transform: translateX(0) scale(1); }
+            50% { opacity: 0.8; }
+            100% { bottom: 100%; opacity: 0; transform: translateX(100px) scale(1.5); }
+        }
+    </style>
+</head>
+<body>
+    <h1>Elifim Seni Çok Seviyorum ❤️</h1>
+
+    <script>
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.textContent = '❤️';
+
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = 3 + Math.random() * 4 + 's';
+
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 7000);
+        }
+
+        setInterval(createHeart, 300);
+    </script>
+</body>
+</html>
